@@ -1,0 +1,17 @@
+{
+  "name": "eclecticiq_automation",
+  "version": "1.0.0",
+  "description": "Automation for EclecticIQ_Automation",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cy:run": "cypress run",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anshul  Bhardwaj",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^8.0.0"
+  },
+  "dependencies": {}
+}

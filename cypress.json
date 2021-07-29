@@ -1,0 +1,9 @@
+{
+    "env":{
+
+        "loginUrl": "https://mystifying-beaver-ee03b5.netlify.app"
+
+    },
+   
+    "chromeWebSecurity": false
+}
