@@ -10,6 +10,7 @@ function selectSortData(value) {
   cy.get("select").select(value);
 }
 
+// comparing the two arras
 const compareArrayValues = (actaulArray, expectedArray) => {
   let value = false;
   for (let i = 0; i < actaulArray.length; i++) {
@@ -29,23 +30,22 @@ describe("Launching the browser  ", () => {
     const launchUrl = "https://mystifying-beaver-ee03b5.netlify.app";
 
     cy.visit(launchUrl);
-});
+  });
 
-
-    beforeEach(() => {
-        cy.get("#filter-input").clear();
-        cy.get(".table-content")
+  // it will check the table is loaded then only it perfrom the tests
+  beforeEach(() => {
+    cy.get("#filter-input").clear();
+    cy.get(".table-content")
       .get(".table-row")
       .should("not.have.length", 0);
-        
-    })
-    // if value is zero this means table is empty No need to run the tests
-    
-  
+  });
 
+  // This my test plan name
   describe("sorting and filtering tests ", () => {
+    // test cases name I am validating the combination of filter and sort
+    // I have first pick value from table and then using that value i am filtering
+    // then I am check the sort
     it("validate combination filtering and sorting ", () => {
-      
       let nameValue = [];
       cy.get(".data-complexity")
         .each($name => {
@@ -74,8 +74,8 @@ describe("Launching the browser  ", () => {
         });
     });
 
+    // validating sort , I have comparing the values of sort by my function and sort by UI
     it("validate sort for Name", () => {
-       
       selectSortData("name");
       let idList = [];
       let sorted = [];
@@ -91,10 +91,10 @@ describe("Launching the browser  ", () => {
         });
     });
 
+    // validating sort , I have comparing the values of sort by my function and sort by UI
     it("validate sort average Impact score ", () => {
-       
       selectSortData("averageImpact");
-      cy.wait(1000)
+      cy.wait(1000);
       let idList = [];
       let sorted = [];
       let sortedToggle = false;
@@ -115,8 +115,8 @@ describe("Launching the browser  ", () => {
         });
     });
 
+    // validating the filter using the value from table
     it("validate filtering Using Name ", () => {
-        
       let nameValue = [];
       cy.get(".data-name")
         .each($name => {
@@ -129,9 +129,8 @@ describe("Launching the browser  ", () => {
           cy.get(".data-name").should("contain", nameValue[2]);
         });
     });
-
+    //validating the filter using the value from table
     it("validate filtering Using COMPLEXITY ", () => {
-   
       let nameValue = [];
       cy.get(".data-complexity")
         .each($name => {
